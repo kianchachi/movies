@@ -1,0 +1,37 @@
+
+  <h1>Movie List</h1>
+  <a class="nav-link" [routerLink] = "['new']" ><button>Add a new movie</button></a>
+
+
+
+
+  <table class="table table-striped" >
+    <thead >
+      <tr>
+        <th scope="col">Movie Title</th>
+
+        <th scope="col">Available Actions</th>
+
+      </tr>
+    </thead>
+    <tbody *ngFor="let x of review">
+
+      <tr>
+        <td>{{x.title}}</td>
+
+
+        <td>               
+            <a [routerLink] = "['pets/show', x._id]" class="btn btn-danger btn-sm text-white">Read reviews</a>
+            <a [routerLink] = "['pets/edit', x._id]" class="btn btn-primary btn-sm" style="margin-left: 15px;">Write review</a>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+  <router-outlet></router-outlet>
+
+
+
+
+
+

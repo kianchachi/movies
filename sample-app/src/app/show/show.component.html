@@ -1,0 +1,31 @@
+<a (click)="onDelete(showProd._id)" class="btn btn-danger btn-sm text-white" style="margin-left: 15px;" >Delete Movie</a>
+<a class="nav-link" [routerLink] = "['']" style="float:right;" > Home</a>
+
+
+<h3>Reviews for {{showProd?.review.title}}</h3>
+
+
+
+
+<table class="table table-striped" >
+        <thead >
+          <tr>
+            <th scope="col">Reviewer:</th>
+            <th scope="col">Stars: </th>
+            <th scope="col">Reviews:</th>
+            <th scope="col">Actions:</th>
+          </tr>
+        </thead>
+        <tbody >
+          <tr>
+            <td>{{showProd?.review.name}}</td>
+            <td>{{showProd?.review.stars}}</td>
+            <td>{{showProd?.review.description}}</td>
+            <td>
+              <a (click)="onDelete(showProd._id)" class="btn btn-danger btn-sm text-white" style="margin-left: 15px;" >Delete Movie</a>
+            </td>
+
+          </tr>
+    
+        </tbody>
+      </table>

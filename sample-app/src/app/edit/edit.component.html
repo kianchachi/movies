@@ -1,0 +1,39 @@
+
+<a class="nav-link" [routerLink] = "['']"> Home</a>
+
+
+
+    <form (submit)="onSubmit()">
+            <p>{{ editProd | json }}</p>
+
+        <div class="form-group">
+            <label for="">Your Name </label>
+            <p class="small text-danger" *ngIf ="name.errors  && !name.pristine" >Must be 3 characters long</p>
+            <input type="text" class="form-control w-50" name="editProd.name" [(ngModel)]="editProd.name"  required minlength= "3" #name="ngModel" >
+            <p class="small text-danger">{{err?.name?.message}}</p>
+        </div>
+
+    <div class="form-group">
+        <label for="">Stars</label>
+        <select name="newProd.stars" [(ngModel)]="newProd.stars">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+        </select>
+    </div>
+            
+            <div class="form-group">
+                    <label for="">Your Review</label>
+                    <p class="small text-danger" *ngIf ="description.errors  && !description.pristine" >Must be 3 characters long</p>
+                    <textarea type="text" class="form-control w-50" name="newProd.description" [(ngModel)]="newProd.description" required minlength= "3" #description="ngModel"></textarea>
+                    <p class="small text-danger">{{err?.description?.message}}</p>
+            </div>
+        
+
+        <button  class="btn btn-primary btn-sm" type="submit"  >Submit</button>
+        <a   class="btn btn-danger btn-sm text-white " [routerLink] = "['']" style="margin-left: 15px;">Cancel</a>
+    
+    </form>

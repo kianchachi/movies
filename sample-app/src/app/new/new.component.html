@@ -1,0 +1,50 @@
+<a class="nav-link" [routerLink] = "['']"> Home</a>
+
+
+<h1>Submit a movie and your review:</h1>
+
+
+
+<form (submit)="onSubmit()" name="myForm" >
+
+    <p>{{ newProd | json }}</p>
+
+    <div class="form-group">
+        <label for="">Movie Title</label>
+        <p class="small text-danger"  *ngIf ="title.errors  && !title.pristine" >Must be 3 characters long</p>
+        <input type="text" class="form-control w-50" name="newProd.title" [(ngModel)]="newProd.title" required minlength= "3" #title="ngModel">
+        <p class="small text-danger">{{err?.title?.message}}</p>
+    </div>
+    <div class="form-group">
+            <label for="">Your Name </label>
+            <p class="small text-danger" *ngIf ="name.errors  && !name.pristine" >Must be 3 characters long</p>
+            <input type="text" class="form-control w-50" name="newProd.review.name" [(ngModel)]="newProd.review.name" required minlength= "3" #name="ngModel">
+            <p class="small text-danger">{{err?.name?.message}}</p>
+    </div>
+
+    <div class="form-group">
+        <label for="">Stars</label>
+        <select name="newProd.review.stars" [(ngModel)]="newProd.review.stars">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+        </select>
+    </div>
+    <div class="form-group">
+            <label for="">Description</label>
+            <p class="small text-danger" *ngIf ="description.errors  && !description.pristine" >Must be 3 characters long</p>
+            <input type="text" class="form-control w-50" name="newProd.review.description" [(ngModel)]="newProd.review.description" required minlength= "3" #description="ngModel">
+            <p class="small text-danger">{{err?.description?.message}}</p>
+        </div>
+
+
+
+    <button  class="btn btn-primary btn-sm" type="submit"  >Submit</button>
+    <a   class="btn btn-danger btn-sm text-white " [routerLink] = "['']" style="margin-left: 15px;">Cancel</a>
+
+
+
+</form>
